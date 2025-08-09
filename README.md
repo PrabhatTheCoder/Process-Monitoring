@@ -29,6 +29,7 @@ It collects process and system metrics from a lightweight **Windows Agent (`agen
 - **Frontend:** HTML, CSS, JavaScript (Bootstrap)
 - **Agent:** Python (compiled to EXE with PyInstaller)
 - **Database:** SQLite (default) – can be switched to PostgreSQL
+- **Cloud Hosting:** AWS EC2
 - **Deployment:** Docker & Docker Compose
 
 ---
@@ -143,51 +144,44 @@ Returns a continuous JSON stream of running processes with:
 
 ## 📡 Windows Agent Setup
 
-### Option 1: Download Pre-compiled Agent
-Download the ready-to-use Windows executable:
-**[Download agent_main.exe](https://github.com/PrabhatTheCoder/Process-Monitoring/blob/main/agent_main.exe)**
+### 🚀 Quick Start (Recommended)
+**Simply download and run the Windows executable - it will automatically fetch data and send it to the server!**
 
-### Option 2: Compile from Source
+**[📥 Download agent_main.exe](https://github.com/PrabhatTheCoder/Process-Monitoring/raw/main/agent_main.exe)**
+
+### How to Use:
+1. **Download** the `agent_main.exe` file from the link above
+2. **Double-click** the executable on your Windows machine
+3. **That's it!** The agent will automatically:
+   - Start collecting process data from your system
+   - Connect to the server at `ws://52.66.248.191:8000`
+   - Begin streaming real-time data to the dashboard
+4. **View your data** on the live dashboard: [http://52.66.248.191:8000/](http://52.66.248.191:8000/)
+
+> **✨ Note:** The agent runs automatically once clicked - no command-line setup required! It will instantly start fetching processing data from your Windows system and streaming it to the monitoring dashboard.
+
+### Advanced Usage (Custom Server)
+If you want to connect to a different server:
+```cmd
+agent_main.exe --server ws://<your-server-ip>:8000/ws/monitor/<hostname>/
+```
+
+### Compile from Source (Optional)
 1. Navigate to the `agent/` directory
 2. Compile the agent to EXE:
    ```bash
    pyinstaller --onefile agent.py
    ```
 
-### Running the Agent
-1. Run `agent_main.exe` on your Windows system:
-   ```cmd
-   agent_main.exe --server ws://<server-ip>:8000/ws/monitor/<hostname>/
-   ```
-   
-2. **Example usage:**
-   ```cmd
-   agent_main.exe --server ws://52.66.248.191:8000/ws/monitor/your-hostname/
-   ```
-
-The agent will start streaming real-time process data from your Windows machine to the Django backend.
-
-> **Note:** `agent_main.exe` is specifically designed to fetch processing data from Windows systems and stream it to the monitoring dashboard in real-time.
-
 ---
 
 ## 📷 Screenshots
 
 ### Live Process Dashboard
-![Process Monitoring Dashboard](http://52.66.248.191:8000/)
+Visit the dashboard to see real-time process monitoring: **[http://52.66.248.191:8000/](http://52.66.248.191:8000/)**
 
----
+Once you run `agent_main.exe` on your Windows machine, you'll see your system's processes appear on the dashboard in real-time!
 
-## 📌 To-Do
-
-- [ ] Add authentication for WebSocket connections
-- [ ] Export process logs to CSV/JSON  
-- [ ] Support Linux & Mac agents
-- [ ] Add alerts for high CPU/memory usage
-- [ ] Process filtering and search functionality
-- [ ] Historical data visualization charts
-
----
 
 ## 🤝 Contributing
 
