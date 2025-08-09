@@ -152,13 +152,19 @@ Returns a continuous JSON stream of running processes with:
 ### How to Use:
 1. **Download** the `agent_main.exe` file from the link above
 2. **Double-click** the executable on your Windows machine
-3. **That's it!** The agent will automatically:
+3. **Windows Defender Warning:** You may see a Windows Defender SmartScreen warning:
+   - Click **"More info"**
+   - Then click **"Run anyway"**
+   - This is normal for unsigned executables and the software is safe to run
+4. **That's it!** The agent will automatically:
    - Start collecting process data from your system
    - Connect to the server at `ws://52.66.248.191:8000`
    - Begin streaming real-time data to the dashboard
-4. **View your data** on the live dashboard: [http://52.66.248.191:8000/](http://52.66.248.191:8000/)
+5. **View your data** on the live dashboard: [http://52.66.248.191:8000/](http://52.66.248.191:8000/)
 
 > **✨ Note:** The agent runs automatically once clicked - no command-line setup required! It will instantly start fetching processing data from your Windows system and streaming it to the monitoring dashboard.
+
+> **🛡️ Security Notice:** Windows Defender may show a warning because the executable is not digitally signed. The software is completely safe - just click "More info" → "Run anyway" to proceed.
 
 ### Advanced Usage (Custom Server)
 If you want to connect to a different server:
@@ -182,6 +188,7 @@ Visit the dashboard to see real-time process monitoring: **[http://52.66.248.191
 
 Once you run `agent_main.exe` on your Windows machine, you'll see your system's processes appear on the dashboard in real-time!
 
+---
 
 ## 🤝 Contributing
 
